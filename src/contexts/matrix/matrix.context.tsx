@@ -16,6 +16,8 @@ const MatrixContext = createContext<MatrixContextProps>({
   M: 0,
   N: 0,
   X: 0,
+  hoveredCellId: null,
+  nearestCellsId: [],
 });
 
 const MatrixContextProvider: FC<PropsWithChildren> = ({ children }) => {

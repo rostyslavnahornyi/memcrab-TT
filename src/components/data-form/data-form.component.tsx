@@ -28,7 +28,7 @@ const DataForm: FC = () => {
       return alert(`X should contain value from 0 to ${M & N}`);
     }
 
-    dispatch({ type: "GENERATE_MATRIX", payload: { M, N } });
+    dispatch({ type: "GENERATE_MATRIX", payload: { M, N, X } });
   };
 
   return (

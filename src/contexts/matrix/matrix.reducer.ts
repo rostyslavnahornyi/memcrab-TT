@@ -5,12 +5,14 @@ const initialState: State = {
   M: 0,
   N: 0,
   X: 0,
+  hoveredCellId: null,
+  nearestCellsId: [],
 };
 
 const reducer = (state: State, action: Action): State => {
   switch (action.type) {
     case "GENERATE_MATRIX": {
-      const { M, N } = action.payload;
+      const { M, N, X } = action.payload;
 
       const matrix = Array.from({ length: M }, (_, rowIndex) =>
         Array.from({ length: N }, (_, colIndex) => ({
@@ -19,7 +21,7 @@ const reducer = (state: State, action: Action): State => {
         }))
       );
 
-      return { ...state, matrix, M, N };
+      return { ...state, matrix, M, N, X };
     }
 
     case "INCREMENT_CELL": {
@@ -53,6 +55,17 @@ const reducer = (state: State, action: Action): State => {
 
       return { ...state, matrix: reducedMatrix };
     }
+
+    case "SET_HOVERED_CELL":
+      return {
+        ...state,
+        hoveredCellId: action.payload.hoveredCellId,
+      };
+    case "SET_NEAREST_CELLS":
+      return {
+        ...state,
+        nearestCellsId: action.payload.nearestCellsId,
+      };
 
     default:
       return state;

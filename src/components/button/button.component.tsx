@@ -6,17 +6,14 @@ const Button: React.FC<ButtonProps> = ({
   dangerous,
   onClick,
   ...props
-}) => {
-  return (
-    <button
-      {...props}
-      onClick={onClick}
-      style={{ backgroundColor: dangerous ? "#ff5c5c" : "" }}
-      className={styles.button}
-    >
-      {children}
-    </button>
-  );
-};
+}) => (
+  <button
+    {...props}
+    onClick={onClick}
+    className={`${styles.button} ${dangerous ? styles.dangerousVariant : ""}`}
+  >
+    {children}
+  </button>
+);
 
 export { Button };
