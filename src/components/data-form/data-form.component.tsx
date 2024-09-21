@@ -25,7 +25,7 @@ const DataForm: FC = () => {
       return alert("N should contain value from 0 to 100");
     }
     if (!(X >= 0 && X <= M * N)) {
-      return alert(`X should contain value from 0 to ${M & N}`);
+      return alert(`X should contain value from 0 to ${M * N}`);
     }
 
     dispatch({ type: "GENERATE_MATRIX", payload: { M, N, X } });
