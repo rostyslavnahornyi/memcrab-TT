@@ -1,8 +1,4 @@
-import {
-  Cell,
-  MatrixContextProps,
-  State,
-} from "../contexts/matrix/matrix.types";
+import { Cell, State } from "../contexts/matrix/matrix.types";
 
 export const calculateRowSum = (row: { amount: number }[]) => {
   return row.reduce((sum, cell) => sum + cell.amount, 0);
